@@ -7,8 +7,8 @@ for ITERATING through SEQUENCES, including:
   -- The FIND pattern (via LINEAR SEARCH)
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Adi Sethupathy.
+"""  # done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -76,7 +76,7 @@ def sum_radii(circles):
       :rtype: int | float
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # done: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     # Note: No fair using "slices" on ANY of these problems,
@@ -87,6 +87,11 @@ def sum_radii(circles):
     #
     #       Instead, use explicit loops, as you have for other problems.
     # ------------------------------------------------------------------
+
+    sum = 0
+    for k in range(len(circles)):
+        sum += circles[k].radius
+    return sum
 
 
 # ----------------------------------------------------------------------
@@ -122,7 +127,6 @@ def run_test_count_last_n_odds():
     answer4 = count_last_n_odds(seq, 3)
     answer5 = count_last_n_odds(seq, 4)
     answer6 = count_last_n_odds(seq, 5)
-
     print()
     print('Test set #2 of count_last_n_odds:',
           answer1, answer2, answer3, answer4, answer5, answer6)
@@ -151,9 +155,16 @@ def count_last_n_odds(integers, n):
       :rtype: int
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # done: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
+
+    count = 0
+    for k in range(len(integers) - n, len(integers)):
+        index = integers[k]
+        if (index % 2 == 1):
+            count += 1
+    return count
 
 
 # ----------------------------------------------------------------------
@@ -226,9 +237,15 @@ def index_of_first_negative(numbers):
       :rtype: int
     """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # done: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
+
+    for k in range(len(numbers)):
+        if numbers[k] < 0:
+            return k
+        if k + 1 == len(numbers):
+            return -1
 
 
 def run_test_contains_an_a():
@@ -284,7 +301,7 @@ def contains_an_a(s):
       :rtype: bool
     """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # done: 5. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     ####################################################################
@@ -297,6 +314,14 @@ def contains_an_a(s):
     #   Use an explicit loop, as you have done in the other problems.
     #   No fair using the   count   or   find   string methods.
     # ------------------------------------------------------------------
+
+    for k in range(len(s)):
+        index = s[k]
+        max = len(s) - 1
+        if index == 'a':
+            return True
+        if k == max:
+            return False
 
 
 # ----------------------------------------------------------------------
